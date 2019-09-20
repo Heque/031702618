@@ -112,7 +112,7 @@ def findsheng(str,list,index):
                     list.append(a.group())
                     b=str.replace(a.group(),"",1)
                     break
-               else:
+               if(i>8):
                     list.append(a.group()+"省")
                     b=str.replace(a.group(),"",1)
                     
@@ -198,13 +198,27 @@ s=findall(s,add,index[0])
 sum.append(add)
 geshi={}
 geshi["姓名"]=sum[0]
-geshi["号码"]=sum[1]
+geshi["手机"]=sum[1]
 geshi["地址"]=sum[2]
 json1=json.dumps(geshi,ensure_ascii=False,indent=4)
 print(json1)
         
     
 
+
+
+
+               
+               
+          
+
+
+
+
+
+
+          
+     
 
 
 
