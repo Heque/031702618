@@ -137,21 +137,21 @@ def findshi(str,list,index):
      return b
 
 def findall(str,list,index):
-      a=re.match('([^县]+?县|.+?区|.+?市|.+?旗|.+?海域|.+?岛|"")',str)
+      a=re.match('([^县]+?县|.*?区|.*?市|.*?旗|.*?海域|.*?岛|"")',str)
       b=str
       if(a):
           list.append(a.group())
           b=str.replace(a.group(),"",1)
       else:
           list.append("")
-      a=re.match(".+?乡|.+?镇|.+?街道",b)
+      a=re.match(".*?乡|.*?镇|.*?街道",b)
       if(a):
           list.append(a.group())
           b=b.replace(a.group(),"",1)
       else:
           list.append("")
       if(index=='2' or index=='3'):
-          a=re.match(".+?路|.+大街",b)
+          a=re.match(".*?路|.*?街|.*？弄|。*巷",b)
           if(a):
               list.append(a.group())
               b=b.replace(a.group(),"",1)
