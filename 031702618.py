@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*- 
+
+        
+    
+
+
+
+
+               
+               
 import re
 import json
 
@@ -145,12 +154,16 @@ def findall(str,list,index):
           b=str.replace(a.group(),"",1)
       else:
           list.append("")
+
+        
       a=re.match(".*?乡|.*?镇|.*?街道",b)
       if(a):
           list.append(a.group())
           b=b.replace(a.group(),"",1)
       else:
           list.append("")
+
+          
       if(index=='2' or index=='3'):
           a=re.match(".*?路|.*道|.*?街|.*？弄|.*?巷",b)
           if(a):
@@ -165,9 +178,8 @@ def findall(str,list,index):
               b=b.replace(a.group(),"",1)
           else:
               list.append("")
-      
-      a=re.findall("([^\.]*)\.",b)
-      list=list.append(a[0])
+      b=b.replace(".","",1)
+      list=list.append(b)
       
       return b
 
@@ -175,7 +187,6 @@ def findall(str,list,index):
 #main
 all=[]
 each_line=input()
-
 index=[]
 add=[]
 sum=[]
@@ -201,6 +212,15 @@ print(json1)
 
                
                
+          
+
+
+
+
+
+
+          
+     
           
 
 
