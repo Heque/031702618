@@ -87,7 +87,7 @@ def cutname(str,list,index):
      a=re.search(r'\d!(.*)(\,).*(\d{11}).*',str)
      list.append(a.group(1))
      list.append(a.group(3))
-     b=str.replace(a.group(1),"")
+     b=str.replace(a.group(1),"",1)
      b=b.replace(a.group(2),"")
      b=b.replace(a.group(3),"")
      
@@ -115,7 +115,11 @@ def findsheng(str,list,index):
                else:
                     list.append(a.group()+"省")
                     b=str.replace(a.group(),"",1)
-                    b=b.replace('省',"",1)
+                    
+                    c=re.match("省.*",b)
+                    if(c):
+                        b=b.replace('省',"",1)
+                        
                     break
      return b
 #找到省份前八不加省
@@ -127,7 +131,9 @@ def findshi(str,list,index):
           if(a):
                list.append(a.group()+"市")
                b=str.replace(a.group(),"",1)
-               b=b.replace('市',"",1)
+               c=re.match("市.*",b)
+               if(c):
+                   b=b.replace('市',"",1)
                test=0
                break
 
@@ -178,6 +184,7 @@ def findall(str,list,index):
 #main
 all=[]
 each_line=input()
+
 index=[]
 add=[]
 sum=[]
@@ -197,6 +204,21 @@ json1=json.dumps(geshi,ensure_ascii=False,indent=4)
 print(json1)
         
     
+
+
+
+
+               
+               
+          
+
+
+
+
+
+
+          
+     
 
 
 
