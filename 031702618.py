@@ -134,6 +134,7 @@ def findshi(str,list,index):
      if(test==1):
           list.append("")
           b=str
+    
      return b
 
 def findall(str,list,index):
@@ -151,7 +152,7 @@ def findall(str,list,index):
       else:
           list.append("")
       if(index=='2' or index=='3'):
-          a=re.match(".*?路|.*?街|.*？弄|。*巷",b)
+          a=re.match(".*?路|.*道|.*?街|.*？弄|.*?巷",b)
           if(a):
               list.append(a.group())
               b=b.replace(a.group(),"",1)
@@ -164,6 +165,7 @@ def findall(str,list,index):
               b=b.replace(a.group(),"",1)
           else:
               list.append("")
+      
       a=re.findall("([^\.]*)\.",b)
       list=list.append(a[0])
       
